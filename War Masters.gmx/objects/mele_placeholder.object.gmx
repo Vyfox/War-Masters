@@ -25,11 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spd = .5;
+            <string>///Variables
+spd = .5;
 armor = 2
 tipo = "mele";
 rango = 10;
 salud = 100;
+atiro = 0;
+velocidadDeAtaque = 150;
+tiempoDeAtaque = 0;
 </string>
           </argument>
         </arguments>
@@ -54,6 +58,8 @@ salud = 100;
             <kind>1</kind>
             <string>///Movimiento
 scr_enemy_movement(spd,rango);
+scr_xscale();
+depth = -y;
 </string>
           </argument>
         </arguments>
@@ -83,6 +89,32 @@ if salud &lt;=0
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Ataque
+tiempoDeAtaque -=room_speed/60;
+if atiro == 1
+{
+scr_ataque();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="Golpe">
       <action>
@@ -102,6 +134,10 @@ if salud &lt;=0
           <argument>
             <kind>1</kind>
             <string>salud -= scr_danio(armor,other.danio)
+if tiempoDeAtaque&lt;velocidadDeAtaque/2
+{
+tiempoDeAtaque = velocidadDeAtaque;
+}
 </string>
           </argument>
         </arguments>

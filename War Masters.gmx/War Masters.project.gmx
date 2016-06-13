@@ -11,6 +11,7 @@
     <sprite>sprites\s_mele_placeholder</sprite>
     <sprite>sprites\s_rango_placeholder</sprite>
     <sprite>sprites\s_solid</sprite>
+    <sprite>sprites\s_proyectil_enemy</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_pasto</background>
@@ -20,6 +21,8 @@
     <script>scripts\scr_hero_movement.gml</script>
     <script>scripts\scr_enemy_movement.gml</script>
     <script>scripts\scr_danio.gml</script>
+    <script>scripts\scr_ataque.gml</script>
+    <script>scripts\scr_xscale.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\hero_placeholder</object>
@@ -31,6 +34,8 @@
     </objects>
     <objects name="Golpes y Proyectiles">
       <object>objects\Golpe</object>
+      <object>objects\GolpeEnemy</object>
+      <object>objects\ProyectilEnemy</object>
     </objects>
   </objects>
   <rooms name="rooms">

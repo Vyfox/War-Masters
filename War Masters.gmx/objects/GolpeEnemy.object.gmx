@@ -26,9 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-image_xscale=hero.image_xscale;
-danio = 3;
-alarm[0]= room_speed/60;
+danio = 6
+alarm[0]= room_speed/60
 </string>
           </argument>
         </arguments>
