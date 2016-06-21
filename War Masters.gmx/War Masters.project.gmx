@@ -12,6 +12,7 @@
     <sprite>sprites\s_rango_placeholder</sprite>
     <sprite>sprites\s_solid</sprite>
     <sprite>sprites\s_proyectil_enemy</sprite>
+    <sprite>sprites\s_base</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_pasto</background>

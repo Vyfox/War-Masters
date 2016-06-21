@@ -4,7 +4,7 @@ if self.tiempoDeAtaque <= 0
     {
     with(instance_create(x,y,GolpeEnemy))
     {
-    image_xscale = self.image_xscale;
+    scr_xscale();
     }
     }
 

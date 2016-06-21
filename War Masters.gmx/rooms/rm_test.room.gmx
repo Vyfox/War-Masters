@@ -71,6 +71,22 @@
     <instance objName="Solid" x="256" y="352" name="inst_EB4641E2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Solid" x="224" y="352" name="inst_1EEBD5CC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Solid" x="192" y="352" name="inst_6E5D5946" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="mele_placeholder" x="832" y="416" name="inst_EA2A0CB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="mele_placeholder" x="800" y="480" name="inst_95DB62E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="mele_placeholder" x="736" y="640" name="inst_13CAE1D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="mele_placeholder" x="928" y="704" name="inst_AC4AEAF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="mele_placeholder" x="704" y="736" name="inst_AEFA900D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="mele_placeholder" x="448" y="672" name="inst_837ED0FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="mele_placeholder" x="608" y="672" name="inst_68416BBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="mele_placeholder" x="640" y="544" name="inst_DFD7BAD0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="mele_placeholder" x="864" y="576" name="inst_44C8BEA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="mele_placeholder" x="736" y="384" name="inst_2937C7C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="mele_placeholder" x="896" y="544" name="inst_CAB02BDA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rango_placeholder" x="32" y="160" name="inst_35E669B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rango_placeholder" x="128" y="32" name="inst_5AC98498" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rango_placeholder" x="160" y="128" name="inst_7488A0D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rango_placeholder" x="128" y="224" name="inst_0FB388DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="rango_placeholder" x="256" y="128" name="inst_78B9324C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
