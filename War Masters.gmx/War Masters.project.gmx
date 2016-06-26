@@ -7,6 +7,7 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\s_hero_placeholder</sprite>
+    <sprite>sprites\m_golpe_placeholder</sprite>
     <sprite>sprites\m_golpe_mid</sprite>
     <sprite>sprites\s_mele_placeholder</sprite>
     <sprite>sprites\s_rango_placeholder</sprite>

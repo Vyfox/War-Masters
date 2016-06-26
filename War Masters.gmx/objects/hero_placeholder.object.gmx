@@ -39,6 +39,10 @@ keyLeft = ord("A");
 keyRight = ord("D");
 keyUp = ord("W");
 keyDown = ord("S");
+
+//animacion
+image_speed = 0;
+
 </string>
           </argument>
         </arguments>
