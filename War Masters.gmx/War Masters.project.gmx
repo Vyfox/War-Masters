@@ -14,30 +14,67 @@
     <sprite>sprites\s_solid</sprite>
     <sprite>sprites\s_proyectil_enemy</sprite>
     <sprite>sprites\s_base</sprite>
+    <sprites name="Heros">
+      <sprites name="Samurai">
+        <sprite>sprites\s_samurai_idle</sprite>
+        <sprite>sprites\s_samurai_idlehit</sprite>
+        <sprite>sprites\s_samurai_walk</sprite>
+        <sprite>sprites\s_samurai_walkhit</sprite>
+        <sprite>sprites\s_samurai_run</sprite>
+        <sprite>sprites\s_samurai_runhit</sprite>
+        <sprite>sprites\s_samurai_skill</sprite>
+        <sprite>sprites\s_samurai_die</sprite>
+        <sprites name="hit">
+          <sprite>sprites\s_samurai_hit1</sprite>
+          <sprite>sprites\s_samurai_hit2</sprite>
+          <sprite>sprites\m_samurai_hit1</sprite>
+        </sprites>
+        <sprite>sprites\m_samurai</sprite>
+      </sprites>
+    </sprites>
+    <sprite>sprites\s_cursores</sprite>
+    <sprite>sprites\s_cursor_hit</sprite>
+    <sprite>sprites\s_cursor</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_pasto</background>
+    <background>background\bg_piso</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\scr_hero_movement_obsoleto.gml</script>
     <script>scripts\scr_hero_movement.gml</script>
-    <script>scripts\scr_enemy_movement.gml</script>
-    <script>scripts\scr_danio.gml</script>
-    <script>scripts\scr_ataque.gml</script>
-    <script>scripts\scr_xscale.gml</script>
+    <script>scripts\scr_depth_y_xscale.gml</script>
+    <script>scripts\scr_animations.gml</script>
+    <script>scripts\scr_refresh_movement.gml</script>
+    <scripts name="skills">
+      <script>scripts\scr_samurai_skills.gml</script>
+    </scripts>
+    <scripts name="combos">
+      <script>scripts\scr_samurai_combo.gml</script>
+    </scripts>
+    <scripts name="System">
+      <script>scripts\scr_cursor.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
-    <object>objects\hero_placeholder</object>
-    <object>objects\mele_placeholder</object>
-    <object>objects\rango_placeholder</object>
+    <objects name="Heros">
+      <objects name="Samurai">
+        <object>objects\hero_samurai</object>
+        <object>objects\hit_samurai</object>
+      </objects>
+    </objects>
     <objects name="Parents">
       <object>objects\hero</object>
-      <object>objects\Solid</object>
+      <object>objects\hero_hit</object>
+      <object>objects\enemy</object>
+      <object>objects\solid</object>
     </objects>
-    <objects name="Golpes y Proyectiles">
-      <object>objects\Golpe</object>
-      <object>objects\GolpeEnemy</object>
-      <object>objects\ProyectilEnemy</object>
+    <objects name="temp">
+      <object>objects\dummy</object>
+    </objects>
+    <objects name="System">
+      <object>objects\cursor</object>
     </objects>
   </objects>
   <rooms name="rooms">

@@ -26,8 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-image_xscale=hero.image_xscale;
-danio = 3;
+if mouse_x&gt;hero.x
+{image_xscale=1;}
+else{image_xscale=-1;}
 alarm[0]= room_speed/60;
 </string>
           </argument>

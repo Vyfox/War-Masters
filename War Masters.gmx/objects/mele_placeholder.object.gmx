@@ -109,7 +109,13 @@ if salud &lt;=0
 tiempoDeAtaque -=room_speed/60;
 if atiro == 1
 {
+var carga = 0;
+carga += room_speed/60
+if carga&gt;=100
+{
 scr_ataque();
+carga = 0;
+}
 }
 </string>
           </argument>

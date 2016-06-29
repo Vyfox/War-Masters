@@ -2,6 +2,7 @@ if self.tiempoDeAtaque <= 0
 {
     if self.tipo = "mele"
     {
+    //tengo que poner un contador de carga para que cree el golpe y este parado
     with(instance_create(x,y,GolpeEnemy))
     {
     scr_xscale();
