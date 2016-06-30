@@ -68,7 +68,7 @@
       <object>objects\hero</object>
       <object>objects\hero_hit</object>
       <object>objects\enemy</object>
-      <object>objects\solid</object>
+      <object>objects\solido</object>
     </objects>
     <objects name="temp">
       <object>objects\dummy</object>

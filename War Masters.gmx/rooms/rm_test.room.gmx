@@ -53,11 +53,11 @@
   <instances>
     <instance objName="hero_samurai" x="416" y="320" name="inst_571FF4FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="dummy" x="512" y="320" name="inst_B512E015" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="solid" x="368" y="480" name="inst_5F29B935" locked="0" code="" scaleX="8.83870983123779" scaleY="0.677419364452362" colour="4294967295" rotation="0"/>
-    <instance objName="solid" x="480" y="160" name="inst_EEDBB59E" locked="0" code="" scaleX="16.2258071899414" scaleY="0.875" colour="4294967295" rotation="0"/>
+    <instance objName="solido" x="368" y="480" name="inst_5F29B935" locked="0" code="" scaleX="8.83870983123779" scaleY="0.677419364452362" colour="4294967295" rotation="0"/>
+    <instance objName="solido" x="480" y="160" name="inst_EEDBB59E" locked="0" code="" scaleX="16.2258071899414" scaleY="0.875" colour="4294967295" rotation="0"/>
     <instance objName="cursor" x="32" y="96" name="inst_C34053D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="solid" x="224" y="320" name="inst_D527B039" locked="0" code="" scaleX="0.774193525314331" scaleY="10.25" colour="4294967295" rotation="0"/>
-    <instance objName="solid" x="752" y="320" name="inst_F9F8C5F4" locked="0" code="" scaleX="0.875" scaleY="10.5625" colour="4294967295" rotation="0"/>
+    <instance objName="solido" x="224" y="320" name="inst_D527B039" locked="0" code="" scaleX="0.774193525314331" scaleY="10.25" colour="4294967295" rotation="0"/>
+    <instance objName="solido" x="752" y="320" name="inst_F9F8C5F4" locked="0" code="" scaleX="0.875" scaleY="10.5625" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_piso" x="240" y="160" w="160" h="160" xo="117" yo="110" id="10000004" name="inst_1F2DF263" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
