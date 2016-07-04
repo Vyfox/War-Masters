@@ -39,7 +39,8 @@ accion = "idle"; //que estoy haciendo
 image_speed = spd/5; //velocidad de animacion acorde a la velocidad de movimiento
 
 //ataque
-canhit = true //puede pegar
+canhit = true; //puede pegar
+canmove = true;
 hitting = false; //pegando
 mindmg = 3; //daño minimo
 maxdmg = 7; //daño maximo
@@ -47,7 +48,7 @@ cdhit = 10; //cooldown de los golpes comunes
 imghit[0] = s_samurai_hit1; //primer sprite del combo
 imghit[1] = s_samurai_hit2; //segundo sprite del combo
 combo = 0; //contador de combo
-cdskill = 150; //cooldown del skill
+cdskill[0] = 0; //cooldown del skill 0
 activeskill = "slash"; //skill activo
 
 
@@ -137,7 +138,7 @@ canhit = true;
             <kind>1</kind>
             <string>///Scripts
 //Depth y direccion de imagen
-scr_depth_y_xscale()
+scr_depth_y_xscale();
 //Movimiento
 scr_hero_movement(spd,redumov,runspd,running);
 //scr_hero_movement_obsoleto(spd,redumov,runspd,running); //este anda bien pero el actual anda mas fluido
@@ -146,8 +147,8 @@ scr_refresh_movement();
 //Animaciones
 scr_animations(accion);
 
-//Combo
-scr_samurai_combo()
+//skills cd
+scr_skills_cd();
 </string>
           </argument>
         </arguments>
@@ -243,6 +244,33 @@ if canhit = true
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if sprite_index = s_samurai_skill
+{
+    scr_samurai_skills(mouse_x, mouse_y, activeskill);
+    cdskill[0] = 150;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -263,6 +291,37 @@ if canhit = true
             <string>draw_self();
 //draw_text(x-20,y-32,"salud: "+ string(salud));
 //draw_text(x-20,y-64,"accion: "+ string(accion));
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="49">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if estado == "vivo"
+{       
+    if cdskill[0] = 0
+    {
+        canhit = false;
+        canmove = false;
+        accion = "skill"
+    }
+}
 </string>
           </argument>
         </arguments>

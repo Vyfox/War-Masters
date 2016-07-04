@@ -85,6 +85,31 @@ health = 100;
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="hero_skill">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//aca va un script de daño
+//pero por ahora le pongo esto...
+scr_danio_skill();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="hero_hit">
       <action>
         <libid>1</libid>
@@ -104,13 +129,7 @@ health = 100;
             <kind>1</kind>
             <string>//aca va un script de daño
 //pero por ahora le pongo esto...
-if inmune = false
-{
-inmune = true
-image_blend = c_red;
-alarm[0] = rec //variable de recuperacion
-health -= choose(round(random(10)));
-}
+scr_danio_hit();
 </string>
           </argument>
         </arguments>

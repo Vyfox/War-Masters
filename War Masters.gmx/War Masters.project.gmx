@@ -6,12 +6,8 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\s_hero_placeholder</sprite>
-    <sprite>sprites\m_golpe_placeholder</sprite>
-    <sprite>sprites\m_golpe_mid</sprite>
     <sprite>sprites\s_mele_placeholder</sprite>
     <sprite>sprites\s_rango_placeholder</sprite>
-    <sprite>sprites\s_solid</sprite>
     <sprite>sprites\s_proyectil_enemy</sprite>
     <sprite>sprites\s_base</sprite>
     <sprites name="Heros">
@@ -32,9 +28,19 @@
         <sprite>sprites\m_samurai</sprite>
       </sprites>
     </sprites>
-    <sprite>sprites\s_cursores</sprite>
-    <sprite>sprites\s_cursor_hit</sprite>
-    <sprite>sprites\s_cursor</sprite>
+    <sprites name="System">
+      <sprites name="UI">
+        <sprite>sprites\s_cursor</sprite>
+        <sprite>sprites\s_cursor_hit</sprite>
+      </sprites>
+      <sprites name="invis">
+        <sprite>sprites\s_solid</sprite>
+      </sprites>
+      <sprites name="hitskill">
+        <sprite>sprites\m_skill_line</sprite>
+        <sprite>sprites\m_skill_circle</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_pasto</background>
@@ -42,39 +48,42 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_hero_movement_obsoleto.gml</script>
     <script>scripts\scr_hero_movement.gml</script>
     <script>scripts\scr_depth_y_xscale.gml</script>
     <script>scripts\scr_animations.gml</script>
     <script>scripts\scr_refresh_movement.gml</script>
     <scripts name="skills">
+      <script>scripts\scr_skills_cd.gml</script>
       <script>scripts\scr_samurai_skills.gml</script>
-    </scripts>
-    <scripts name="combos">
-      <script>scripts\scr_samurai_combo.gml</script>
     </scripts>
     <scripts name="System">
       <script>scripts\scr_cursor.gml</script>
     </scripts>
+    <script>scripts\scr_danio_hit.gml</script>
+    <script>scripts\scr_danio_skill.gml</script>
   </scripts>
   <objects name="objects">
-    <objects name="Heros">
-      <objects name="Samurai">
-        <object>objects\hero_samurai</object>
-        <object>objects\hit_samurai</object>
+    <objects name="System">
+      <object>objects\cursor</object>
+    </objects>
+    <objects name="inGame">
+      <objects name="Heros">
+        <objects name="Samurai">
+          <object>objects\hero_samurai</object>
+          <object>objects\hit_samurai</object>
+          <object>objects\skill_samurai</object>
+        </objects>
+      </objects>
+      <objects name="temp">
+        <object>objects\dummy</object>
       </objects>
     </objects>
     <objects name="Parents">
       <object>objects\hero</object>
       <object>objects\hero_hit</object>
+      <object>objects\hero_skill</object>
       <object>objects\enemy</object>
       <object>objects\solido</object>
-    </objects>
-    <objects name="temp">
-      <object>objects\dummy</object>
-    </objects>
-    <objects name="System">
-      <object>objects\cursor</object>
     </objects>
   </objects>
   <rooms name="rooms">
