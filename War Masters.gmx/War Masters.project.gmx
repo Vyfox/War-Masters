@@ -4,12 +4,41 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="enemys">
+      <sound>sound\sn_hit</sound>
+      <sound>sound\sn_huesos</sound>
+    </sounds>
+    <sounds name="quejidos">
+      <sound>sound\sn_ouch</sound>
+      <sound>sound\sn_death</sound>
+      <sound>sound\sn_hm1</sound>
+      <sound>sound\sn_hm2</sound>
+      <sound>sound\sn_hm3</sound>
+      <sound>sound\sn_hm4</sound>
+      <sound>sound\sn_hm5</sound>
+      <sound>sound\sn_hm6</sound>
+      <sound>sound\sn_hm_fuerza1</sound>
+    </sounds>
+    <sounds name="swings">
+      <sound>sound\sn_swing1</sound>
+      <sound>sound\sn_swing2</sound>
+      <sound>sound\sn_blade_swing</sound>
+    </sounds>
+    <sounds name="objetos">
+      <sound>sound\sn_crate_break1</sound>
+      <sound>sound\sn_crate_break2</sound>
+      <sound>sound\sn_gold_bag</sound>
+    </sounds>
+    <sounds name="accion">
+      <sound>sound\sn_slash</sound>
+    </sounds>
+    <sounds name="music">
+      <sound>sound\ms_drums</sound>
+      <sound>sound\sn_menu</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
-    <sprite>sprites\s_mele_placeholder</sprite>
-    <sprite>sprites\s_rango_placeholder</sprite>
-    <sprite>sprites\s_proyectil_enemy</sprite>
-    <sprite>sprites\s_base</sprite>
     <sprites name="Heros">
       <sprites name="Samurai">
         <sprite>sprites\s_samurai_idle</sprite>
@@ -20,12 +49,24 @@
         <sprite>sprites\s_samurai_runhit</sprite>
         <sprite>sprites\s_samurai_skill</sprite>
         <sprite>sprites\s_samurai_die</sprite>
+        <sprite>sprites\m_samurai</sprite>
         <sprites name="hit">
           <sprite>sprites\s_samurai_hit1</sprite>
           <sprite>sprites\s_samurai_hit2</sprite>
           <sprite>sprites\m_samurai_hit1</sprite>
         </sprites>
-        <sprite>sprites\m_samurai</sprite>
+        <sprites name="skill">
+          <sprite>sprites\s_slash</sprite>
+        </sprites>
+      </sprites>
+    </sprites>
+    <sprites name="Enemys">
+      <sprites name="Skully">
+        <sprite>sprites\s_skully_walk</sprite>
+        <sprite>sprites\s_skully_hit</sprite>
+        <sprite>sprites\s_skully_idle</sprite>
+        <sprite>sprites\s_skully_die</sprite>
+        <sprite>sprites\m_skully</sprite>
       </sprites>
     </sprites>
     <sprites name="System">
@@ -35,37 +76,69 @@
       </sprites>
       <sprites name="invis">
         <sprite>sprites\s_solid</sprite>
+        <sprite>sprites\s_cam</sprite>
+        <sprite>sprites\m_nada</sprite>
       </sprites>
       <sprites name="hitskill">
         <sprite>sprites\m_skill_line</sprite>
+        <sprite>sprites\s_skill_line</sprite>
         <sprite>sprites\m_skill_circle</sprite>
       </sprites>
     </sprites>
+    <sprites name="Outside">
+      <sprite>sprites\s_tree</sprite>
+      <sprite>sprites\s_tree2</sprite>
+    </sprites>
+    <sprites name="Menues">
+      <sprite>sprites\s_buttons_menu</sprite>
+      <sprite>sprites\s_button_base</sprite>
+    </sprites>
+    <sprites name="Usables">
+      <sprite>sprites\s_potas</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
+    <background>background\bg_outside</background>
     <background>background\bg_pasto</background>
-    <background>background\bg_piso</background>
+    <background>background\bg_dungeon</background>
+    <background>background\bg_inside</background>
+    <background>background\bg_menu</background>
+    <background>background\bg_nubes</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_hero_movement.gml</script>
-    <script>scripts\scr_depth_y_xscale.gml</script>
-    <script>scripts\scr_animations.gml</script>
-    <script>scripts\scr_refresh_movement.gml</script>
-    <scripts name="skills">
-      <script>scripts\scr_skills_cd.gml</script>
-      <script>scripts\scr_samurai_skills.gml</script>
+    <scripts name="Common">
+      <script>scripts\scr_choca.gml</script>
+      <script>scripts\scr_shake.gml</script>
     </scripts>
     <scripts name="System">
       <script>scripts\scr_cursor.gml</script>
     </scripts>
-    <script>scripts\scr_danio_hit.gml</script>
-    <script>scripts\scr_danio_skill.gml</script>
+    <scripts name="Heroes">
+      <script>scripts\scr_controles.gml</script>
+      <script>scripts\scr_danio.gml</script>
+      <script>scripts\scr_hero_movement.gml</script>
+      <script>scripts\scr_animations.gml</script>
+      <script>scripts\scr_refresh_movement.gml</script>
+      <script>scripts\scr_depth_y_xscale.gml</script>
+      <script>scripts\scr_btn_hit.gml</script>
+      <script>scripts\scr_cdhit.gml</script>
+      <scripts name="skills">
+        <script>scripts\scr_btn1_skill.gml</script>
+        <script>scripts\scr_skills_cd.gml</script>
+        <script>scripts\scr_samurai_skills.gml</script>
+      </scripts>
+    </scripts>
+    <scripts name="Enemys">
+      <script>scripts\scr_danio_hit.gml</script>
+      <script>scripts\scr_danio_skill.gml</script>
+      <script>scripts\scr_lookat_hero.gml</script>
+      <script>scripts\scr_mele_behavior.gml</script>
+      <script>scripts\scr_mele_animations.gml</script>
+      <script>scripts\scr_die.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
-    <objects name="System">
-      <object>objects\cursor</object>
-    </objects>
     <objects name="inGame">
       <objects name="Heros">
         <objects name="Samurai">
@@ -74,20 +147,39 @@
           <object>objects\skill_samurai</object>
         </objects>
       </objects>
-      <objects name="temp">
-        <object>objects\dummy</object>
+      <objects name="Enemys">
+        <object>objects\skully</object>
       </objects>
+      <objects name="Outside">
+        <object>objects\Tree</object>
+      </objects>
+    </objects>
+    <objects name="System">
+      <object>objects\cursor</object>
+      <object>objects\control</object>
+      <object>objects\cam</object>
     </objects>
     <objects name="Parents">
       <object>objects\hero</object>
       <object>objects\hero_hit</object>
       <object>objects\hero_skill</object>
       <object>objects\enemy</object>
+      <object>objects\item_consumible</object>
       <object>objects\solido</object>
+    </objects>
+    <objects name="Menues">
+      <object>objects\button_play</object>
+      <object>objects\button_exit</object>
+      <object>objects\button_options</object>
+    </objects>
+    <objects name="Usables">
+      <object>objects\pota</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_menu</room>
     <room>rooms\rm_test</room>
+    <room>rooms\rm_test2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

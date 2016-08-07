@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Variables
+            <string>shaking = false;
+
+///Variables
 //estas son para el script de movimiento "scr_hero_movement"
 soy = "samurai"; // soy un samurai
 spd = 2; //velocidad de walk
@@ -44,25 +46,79 @@ canmove = true;
 hitting = false; //pegando
 mindmg = 3; //daño minimo
 maxdmg = 7; //daño maximo
-cdhit = 10; //cooldown de los golpes comunes
+cdhit = 0.3; //cooldown de los golpes comunes para combo
+cdhitbase = 0.3 //cooldown ORIGINAL!!
+combo = 0; //contador de combo
+cdcombo = 0.6; //cooldown para volver a empezar a golepar de 0
+cdcombobase = 0.6 //cooldown ORIGINAL!!
 imghit[0] = s_samurai_hit1; //primer sprite del combo
 imghit[1] = s_samurai_hit2; //segundo sprite del combo
-combo = 0; //contador de combo
+
+//skills
 cdskill[0] = 0; //cooldown del skill 0
+cdskill0 = 3; //segundos
 activeskill = "slash"; //skill activo
+cancelled = false;
+cancast = false;
+skill0maxdist = 150;
+skill0mindist = 30;
 
+//salud y armor
+hp = 100;
+def = 10;
+inmune = false;
+rec = 10; //recuperacion
 
-//////////////////////////////////////////////////////////////////////////////
-//estas para definir las teclas de movimiento (pasarlas a un objeto de 
-//control global para modificarlas desde el menu de opciones)
-keyLeft = ord("A");
-keyRight = ord("D");
-keyUp = ord("W");
-keyDown = ord("S");
-keyRun = vk_shift;
-keyHit = ev_global_left_press
-keySkill = ord("1")
-///////////////////////////////////////////////////////////////////////////////
+//controles
+scr_controles();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>cancelled = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// se recupera del daño
+inmune = false;
+image_blend = c_white;
 </string>
           </argument>
         </arguments>
@@ -85,35 +141,10 @@ keySkill = ord("1")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///hitting = false
+            <string>///hitting = false; canhit = true; accion = idle
 hitting = false;
 canhit = true;
 accion = "idle";
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///hitting = false
-hitting = false;
-canhit = true;
 </string>
           </argument>
         </arguments>
@@ -137,10 +168,14 @@ canhit = true;
           <argument>
             <kind>1</kind>
             <string>///Scripts
+if hp&gt;0
+{
 //Depth y direccion de imagen
 scr_depth_y_xscale();
+
 //Movimiento
 scr_hero_movement(spd,redumov,runspd,running);
+
 //scr_hero_movement_obsoleto(spd,redumov,runspd,running); //este anda bien pero el actual anda mas fluido
 scr_refresh_movement();
 
@@ -149,6 +184,19 @@ scr_animations(accion);
 
 //skills cd
 scr_skills_cd();
+//skill
+scr_btn1_skill(keySkill);
+
+//hit cd
+scr_cdhit();
+}
+
+///die
+if hp &lt;= 0
+{
+accion = "die";
+scr_animations(accion);
+}
 </string>
           </argument>
         </arguments>
@@ -172,8 +220,7 @@ scr_skills_cd();
           <argument>
             <kind>1</kind>
             <string>///Choca
-x = xprevious;
-y = yprevious;
+scr_choca();
 </string>
           </argument>
         </arguments>
@@ -196,7 +243,7 @@ y = yprevious;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Vuelve a estado de reposo
+            <string>///Vuelve a estado de reposo (accion = idle)
 accion = "idle";
 </string>
           </argument>
@@ -221,24 +268,7 @@ accion = "idle";
           <argument>
             <kind>1</kind>
             <string>/// realiza el combo
-///Comienza el combo
-if canhit = true
-    {
-        if combo &lt;=1
-        {
-            hitting = true;
-            combo++;
-            instance_create(x,y,hit_samurai);
-            canhit = false;
-            alarm[0] = cdhit;
-        }
-        else if combo &gt;=2
-        {
-        canhit = false;
-        combo = 0;
-        alarm[0] = cdhit;
-        }
-    }
+scr_btn_hit(keyHit);
 </string>
           </argument>
         </arguments>
@@ -263,8 +293,13 @@ if canhit = true
             <kind>1</kind>
             <string>if sprite_index = s_samurai_skill
 {
-    scr_samurai_skills(mouse_x, mouse_y, activeskill);
-    cdskill[0] = 150;
+    image_index = 16;
+    cancast = true;
+}
+if sprite_index = s_samurai_die
+{
+    image_speed = 0;
+    image_index = 17;
 }
 </string>
           </argument>
@@ -288,46 +323,26 @@ if canhit = true
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-//draw_text(x-20,y-32,"salud: "+ string(salud));
-//draw_text(x-20,y-64,"accion: "+ string(accion));
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="49">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if estado == "vivo"
-{       
-    if cdskill[0] = 0
+            <string>if accion = "skill"
+{
+    var dist = distance_to_point(mouse_x,mouse_y);
+    var maxdist = skill0maxdist;
+    var mindist = skill0mindist;
+    var range = dist;
+    if dist &gt; maxdist {range = maxdist}
+    else if dist &lt; mindist {range = mindist}
+    if activeskill == "slash"
     {
-        canhit = false;
-        canmove = false;
-        accion = "skill"
+    draw_sprite_ext(s_skill_line,0,x,y,range/90,1,point_direction(x,y,mouse_x,mouse_y), c_white, 0.5)
     }
 }
+draw_self();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="27">
+    <event eventtype="9" enumb="32">
       <action>
         <libid>1</libid>
         <id>603</id>
